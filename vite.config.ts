@@ -1,19 +1,11 @@
 import { sveltekit } from '@sveltejs/kit/vite'
-import legacy from '@vitejs/plugin-legacy'
 import UnoCSS from 'unocss/vite'
 import { defineConfig } from 'vite'
-import topLevelAwait from 'vite-plugin-top-level-await'
 
 export default defineConfig({
   plugins: [
     UnoCSS(),
-    topLevelAwait(),
     sveltekit(),
-    // @ts-ignore
-    legacy({
-      targets: ['defaults', 'safari >= 13'],
-      additionalLegacyPolyfills: ['regenerator-runtime/runtime'],
-    }),
   ],
   server: {
     cors: {
