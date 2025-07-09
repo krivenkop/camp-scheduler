@@ -10,7 +10,6 @@
   const todaySchedule = $derived(campSchedule.find(day => day.day === today))
 
   let now = new Date()
-  now.setHours(9, 44, 4, 0)
 
   interface CurrentEvent {
     event: ScheduleEvent
