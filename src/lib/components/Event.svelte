@@ -29,13 +29,19 @@
     green: 'bg-event-bg-green',
   }[color]
 
-  const heightStep = 126
+  const isClient = $derived(typeof window !== 'undefined')
 
-  const height = $derived(isCurrent ? 200 : heightStep * sizeCoefficient)
+  const windowWidth = $derived(isClient ? window.innerWidth : 0)
+
+  const isMobile = $derived(windowWidth < 768)
+
+  const heightStep = $derived(126)
+
+  const height = $derived(isCurrent ? (isMobile ? 140 : 200) : heightStep * sizeCoefficient)
 </script>
 
 <div
-  class='relative w-full flex justify-between overflow-hidden rounded-6 px-10 py-6 {bgColor}
+  class='relative max-w-full w-full flex justify-between overflow-hidden rounded-3 px-6 py-4 md:rounded-6 md:px-10 md:py-6 {bgColor}
   '
   style='height: {height}px'
 >
@@ -48,34 +54,34 @@
     </div>
   {/if}
 
-  <div class='relative w-full flex flex-col gap-3'>
-    <div class='w-full flex justify-between'>
+  <div class='relative flex flex-col gap-2 md:w-full md:gap-3'>
+    <div class='max-w-full flex flex-col justify-between gap-4 md:w-full md:flex-row'>
       <p
-        class="c-text-black font-semibold font-condensed {isCurrent ? 'text-12/14' : 'text-8/9.5'}
+        class="break-words text-wrap c-text-black font-semibold font-condensed {isCurrent ? 'text-10/12 md:text-12/14' : 'text-6/7.5 md:text-8/9.5'}
         "
       >
         {title}
       </p>
 
       {#if location && !isCurrent}
-        <p class='text-6/7.5 c-text-black font-condensed'>
+        <p class='min-w-fit text-4/5 c-text-black font-condensed md:text-6/7.5'>
           Location: {location}
         </p>
       {/if}
     </div>
-    <p class='font-regular text-6/6.5 c-text-secondary font-condensed'>{timeFrame}</p>
+    <p class='font-regular text-4/5 c-text-secondary font-condensed md:text-6/6.5'>{timeFrame}</p>
   </div>
 
   {#if isCurrent}
-    <div class='relative flex flex-col gap-6'>
+    <div class='relative flex flex-col gap-1 md:gap-6'>
       <p
-        class='text-10/11.5 c-text-secondary font-semibold font-condensed'
+        class='c-text-secondary font-semibold font-condensed md:text-10/11.5'
       >
         Time left: {timeLeft}
       </p>
 
       {#if location}
-        <p class='text-6/7.5 c-text-secondary font-condensed'>
+        <p class='c-text-secondary font-condensed md:text-6/7.5'>
           Location: {location}
         </p>
       {/if}

@@ -212,11 +212,11 @@
   }
 </script>
 
-<section class='absolute left-120 top--104 mx-auto h-480 w-240 flex flex-col rotate--90 gap-5 overflow-hidden py-8 font-sans'>
-  <div class='w-full flex gap-5'>
+<section class='mx-auto max-w-100dvw flex flex-col gap-5 overflow-hidden px-4 py-8 font-sans md:absolute md:left-120 md:top--104 md:h-480 md:max-w-none md:w-240 md:rotate--90 md:px-0'>
+  <div class='hidden w-full gap-2 md:flex md:gap-5'>
     {#each daysOfCamp.slice(1) as day, idx}
       <button
-        class="flex flex-1 items-center justify-center gap-6 rounded-6 px-3.5 py-3 py-5.5 text-10.5/15 font-black font-condensed {isToday(idx) ? 'bg-accent-yellow pl-8.5 c-accent-blue' : 'bg-gray-inactive c-gray-dayweek'}
+        class="flex flex-1 items-center justify-center gap-2 rounded-2 font-black font-condensed md:gap-6 md:rounded-6 md:px-3.5 md:py-5.5 md:text-10.5/15 {isToday(idx) ? 'bg-accent-yellow c-accent-blue md:pl-8.5' : 'bg-gray-inactive c-gray-dayweek'}
         "
         onclick={() => {
           today = idx + 1
@@ -225,13 +225,27 @@
         {isToday(idx) ? day.full : day.short}
 
         {#if isToday(idx)}
-          <div class='rounded-4 bg-white px-6 py-2.5'>
+          <div class='rounded-4 bg-white md:px-6 md:py-2.5'>
             {currentTime}
           </div>
         {/if}
       </button>
     {/each}
   </div>
+
+  <button
+    class={`
+      flex flex-1 items-center justify-center gap-4
+      text-6/7.5
+      rounded-2 bg-accent-yellow px-2 py-2 c-accent-blue font-black font-condensed md:hidden
+    `}
+  >
+    {daysOfCamp[today].full}
+
+    <div class='rounded-2 bg-white px-3 py-1'>
+      {currentTime}
+    </div>
+  </button>
 
   {#if todaySchedule}
     {#if currentEvent}
@@ -252,7 +266,7 @@
   <div class='h-max flex flex-col gap-5'>
     {#each eventsLeft as event, index}
       <div class='flex'>
-        <span class='w-35 text-7/8 c-text-secondary font-medium font-condensed'>
+        <span class='hidden c-text-secondary font-medium font-condensed md:block md:w-35 md:text-7/8'>
           {event.time}
         </span>
         <Event
