@@ -8,9 +8,10 @@ export default defineConfig({
     sveltekit(),
   ],
   server: {
+    origin: 'http://time.tc.io',
     host: '0.0.0.0',
     cors: {
-      origin: 'https://time.tc.io',
+      origin: true,
       credentials: true,
       methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
       allowedHeaders: ['Content-Type', 'Authorization'],
