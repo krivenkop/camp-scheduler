@@ -20,7 +20,7 @@ export const campSchedule: DaySchedule[] = [
       { time: '11:10 am', title: 'Work-time', location: 'Field' },
       { time: '1:10 pm', title: 'Lunch', location: 'Cafeteria' },
       { time: '2:30 pm', title: 'Big Game - Tournament', location: 'Field' },
-      { time: '6:00 pm', title: 'Lunch', location: 'Cafeteria' },
+      { time: '6:00 pm', title: 'Dinner', location: 'Cafeteria' },
       { time: '7:30 pm', title: 'Worship/Service/Announcements', location: 'Field' },
       { time: '10:00 pm', title: 'Free time', location: 'Field' },
       { time: '12:00 am', title: 'Lights out', location: 'Units' },

@@ -212,7 +212,7 @@
   }
 </script>
 
-<section class='mx-auto h-480 w-240 flex flex-col rotate-90 gap-5 overflow-hidden py-8 font-sans'>
+<section class='absolute left--50 mx-auto h-480 w-240 flex flex-col rotate--90 gap-5 overflow-hidden py-8 font-sans'>
   <div class='w-full flex gap-5'>
     {#each daysOfCamp.slice(1) as day, idx}
       <button
