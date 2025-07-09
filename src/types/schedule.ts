@@ -2,6 +2,7 @@ export interface ScheduleEvent {
   time: string // e.g., "5:00 pm"
   title: string // e.g., "Registration"
   description?: string
+  location?: string
 }
 
 export interface DaySchedule {

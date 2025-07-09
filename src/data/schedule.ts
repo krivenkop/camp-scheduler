@@ -13,9 +13,9 @@ export const campSchedule: DaySchedule[] = [
   {
     day: 2,
     events: [
-      { time: '8:30 am', title: 'Warms up' },
-      { time: '9:00 am', title: 'Breakfast' },
-      { time: '10:00 am', title: 'Worship' },
+      { time: '8:30 am', title: 'Warms up', location: 'Main Field' },
+      { time: '9:00 am', title: 'Breakfast', location: 'Cafeteria' },
+      { time: '10:00 am', title: 'Worship', location: 'Main Building' },
       { time: '10:30 am', title: 'Devotional' },
       { time: '11:10 am', title: 'Work-time' },
       { time: '1:10 pm', title: 'Lunch' },
@@ -67,7 +67,7 @@ export const campSchedule: DaySchedule[] = [
       { time: '12:00 pm', title: 'Cleanup Time' },
       { time: '1:00 pm', title: 'Lunch' },
     ],
-  }
+  },
 ]
 
 export const daysOfCamp = [

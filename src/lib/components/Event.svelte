@@ -1,6 +1,7 @@
 <script lang='ts'>
   interface Props {
     title: string
+    location?: string
     timeLeft: string
     timeFrame: string
     color: 'gray' | 'purple' | 'blue' | 'yellow' | 'green'
@@ -17,6 +18,7 @@
     color,
     progress,
     isCurrent = false,
+    location,
   }: Props = $props()
 
   const bgColor = {
@@ -46,23 +48,37 @@
     </div>
   {/if}
 
-  <div class='relative flex flex-col gap-3'>
-    <p
-      class="c-text-black font-semibold font-condensed {isCurrent ? 'text-12/14' : 'text-8/9.5'}
-      "
-    >
-      {title}
-    </p>
+  <div class='relative w-full flex flex-col gap-3'>
+    <div class='w-full flex justify-between'>
+      <p
+        class="c-text-black font-semibold font-condensed {isCurrent ? 'text-12/14' : 'text-8/9.5'}
+        "
+      >
+        {title}
+      </p>
+
+      {#if location && !isCurrent}
+        <p class='text-6/7.5 c-text-black font-condensed'>
+          Location: {location}
+        </p>
+      {/if}
+    </div>
     <p class='font-regular text-6/6.5 c-text-secondary font-condensed'>{timeFrame}</p>
   </div>
 
   {#if isCurrent}
-    <div class='relative flex flex-col'>
+    <div class='relative flex flex-col gap-6'>
       <p
-        class='text-8/9.5 c-text-secondary font-semibold font-condensed'
+        class='text-10/11.5 c-text-secondary font-semibold font-condensed'
       >
         Time left: {timeLeft}
       </p>
+
+      {#if location}
+        <p class='text-6/7.5 c-text-secondary font-condensed'>
+          Location: {location}
+        </p>
+      {/if}
     </div>
   {/if}
 

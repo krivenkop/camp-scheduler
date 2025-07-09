@@ -10,6 +10,7 @@
   const todaySchedule = $derived(campSchedule.find(day => day.day === today))
 
   let now = new Date()
+  now.setHours(9, 44, 4, 0)
 
   interface CurrentEvent {
     event: ScheduleEvent
@@ -241,6 +242,7 @@
         timeFrame={`${currentEvent.event.time} ${nextEvent ? `- ${nextEvent.time}` : ''}`}
         color={getEventColor(currentEvent.eventIndex)}
         isCurrent
+        location={currentEvent.event.location}
         progress={progress}
       />
     {/if}
@@ -256,6 +258,7 @@
         </span>
         <Event
           title={event.title}
+          location={event.location}
           timeLeft={countdown}
           timeFrame={index + 1 === eventsLeft.length ? `${event.time}` : `${event.time} - ${(eventsLeft[index + 1])?.time}`}
           color={getEventColor(index + (currentEvent?.eventIndex ? currentEvent.eventIndex + 1 : 0))}
