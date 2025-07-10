@@ -5,7 +5,7 @@
   import { getEventColor } from '../helpers/event'
   import Event from '../lib/components/Event.svelte'
 
-  let today = $state(2)
+  let today = $state(3)
 
   const todaySchedule = $derived(campSchedule.find(day => day.day === today))
 
@@ -40,8 +40,6 @@
       if (eventDate.getHours() < 3 && eventDate.getHours() >= 0) {
         eventDate.setDate(eventDate.getDate() + 1)
       }
-
-      console.log(eventDate, now)
 
       if (eventDate <= now) {
         lastEvent = { event, eventIndex: index }
