@@ -29,7 +29,7 @@ export const campSchedule: DaySchedule[] = [
   {
     day: 3,
     events: [
-      { time: '8:30 am', title: 'Warm-up', location: 'Field' },
+      { time: '8:29 am', title: 'Warm-up', location: 'Field' },
       { time: '9:00 am', title: 'Breakfast', location: 'Cafeteria' },
       { time: '10:00 am', title: 'Worship', location: 'Main Building' },
       { time: '10:30 am', title: 'Devotional' },
