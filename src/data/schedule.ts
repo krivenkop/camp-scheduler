@@ -39,7 +39,6 @@ export const campSchedule: DaySchedule[] = [
       { time: '6:30 pm', title: 'Dinner', location: 'Cafeteria' },
       { time: '8:00 pm', title: 'Worship/Service/Announcements', location: 'Field' },
       { time: '9:30 pm', title: 'Free-time' },
-      { time: '10:30 pm', title: 'Free time' },
       { time: '1:00 am', title: 'Lights-out' },
     ],
   },
