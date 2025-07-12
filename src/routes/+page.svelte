@@ -5,7 +5,7 @@
   import { getEventColor } from '../helpers/event'
   import Event from '../lib/components/Event.svelte'
 
-  let today = $state(4)
+  let today = $state(5)
 
   const todaySchedule = $derived(campSchedule.find(day => day.day === today))
 
